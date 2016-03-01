@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estadisticas CPU</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="/static/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="/static/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="/static/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="principal.html">Consultas</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"></div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+			
+				
+					
+                 <li>
+                        <a id ="aCPU"   class="" href="#" onClick="goPaginaCPU();"  > <i class="fa fa-dashboard fa-3x"></i> Estadisticas CPU</a>
+                    </li>
+                     <li>
+                        <a id ="aRAM"  class="" href="#" onClick="goPaginaRAM();"><i class="fa fa-dashboard fa-3x"></i> Estadisticas RAM</a>
+                    </li>
+                    <li>
+                        <a id ="aSWAP" class=""  href="#" onClick="goPaginaSWAP();"><i class="fa fa-dashboard fa-3x"></i> Estadisticas SWAP</a>
+                    </li>
+					  <li>
+                        <a id ="aUSER" class=""  href="#" onClick="goPaginaUSER();"><i class="fa fa-dashboard fa-3x"></i> Usuarios logueados</a>
+                    </li>	  
+                       <li>
+                        <a id ="aOS" class=""  href="#" onClick="goPaginaOS();"><i class="fa fa-dashboard fa-3x"></i> Datos de el host</a>
+                    </li>	
+                 		
+					
+					                   
+                    
+                      
+                    
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+           <div id="frame"></div>
+      <object id="contenedor" name="contenedor" width="100%" height = "700px" type="text/html" data="http://mypythonapp-proyectofinal08.rhcloud.com/consulta_uso_cpu"></object>
+      </div>
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="/static/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="/static/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="/static/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="/static/raphael-2.1.0.min.js"></script>
+    <script src="/static/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="/static/custom.js"></script>
+     <script> 
+	
+            function goPaginaCPU() {
+                if(!document.getElementById("contenedor")) 
+                return false;
+                document.getElementById("contenedor").setAttribute('data', "http://mypythonapp-proyectofinal08.rhcloud.com/consulta_uso_cpu");
+                document.getElementById("aCPU").setAttribute('class', "active-menu");
+                document.getElementById("aRAM").setAttribute('class', "");
+                document.getElementById("aSWAP").setAttribute('class', "");
+                document.getElementById("aUSER").setAttribute('class', "");
+                document.getElementById("aOS").setAttribute('class', "");
+            }
+            
+            function goPaginaRAM() {
+                if(!document.getElementById("contenedor")) 
+                return false;
+                document.getElementById("contenedor").setAttribute('data', "http://mypythonapp-proyectofinal08.rhcloud.com/consulta_uso_ram");
+                document.getElementById("aRAM").setAttribute('class', "active-menu");
+                document.getElementById("aSWAP").setAttribute('class', "");
+                document.getElementById("aUSER").setAttribute('class', "");
+                document.getElementById("aOS").setAttribute('class', "");
+                document.getElementById("aCPU").setAttribute('class', "");
+            }
+             function goPaginaSWAP() {
+                if(!document.getElementById("contenedor")) 
+                return false;
+                document.getElementById("contenedor").setAttribute('data', "http://mypythonapp-proyectofinal08.rhcloud.com/consulta_uso_swap");
+                document.getElementById("aSWAP").setAttribute('class', "active-menu");
+                document.getElementById("aUSER").setAttribute('class', "");
+                document.getElementById("aOS").setAttribute('class', "");
+                document.getElementById("aCPU").setAttribute('class', "");
+                document.getElementById("aRAM").setAttribute('class', "");
+            }
+             function goPaginaUSER() {
+                if(!document.getElementById("contenedor")) 
+                return false;
+                document.getElementById("contenedor").setAttribute('data', "http://mypythonapp-proyectofinal08.rhcloud.com/consulta_users");
+                document.getElementById("aUSER").setAttribute('class', "active-menu");
+                document.getElementById("aOS").setAttribute('class', "");
+                document.getElementById("aCPU").setAttribute('class', "");
+                document.getElementById("aRAM").setAttribute('class', "");
+                document.getElementById("aSWAP").setAttribute('class', "");
+            }
+             function goPaginaOS() {
+                if(!document.getElementById("contenedor")) 
+                return false;
+                document.getElementById("contenedor").setAttribute('data', "http://mypythonapp-proyectofinal08.rhcloud.com/consulta_os");
+                document.getElementById("aOS").setAttribute('class', "active-menu");
+                document.getElementById("aCPU").setAttribute('class', "");
+                document.getElementById("aRAM").setAttribute('class', "");
+                document.getElementById("aSWAP").setAttribute('class', "");
+                 document.getElementById("aUSER").setAttribute('class', "");
+            }
+            
+            
+        </script>
+   
+</body>
+</html>
